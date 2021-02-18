@@ -7,6 +7,7 @@ module.exports = {
   mode: 'production',
   output: {
     filename: '[name][contenthash].js',
+    publicPath: '/container/latest/',
   },
   devServer: {
     port: 5000,

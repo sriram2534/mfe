@@ -1,5 +1,8 @@
 name: deploy-container
 
+env:
+    ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+
 on:
   push:
     branches:

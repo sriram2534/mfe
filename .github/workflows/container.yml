@@ -1,8 +1,5 @@
 name: deploy-container
 
-env:
-    ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
-
 on:
   push:
     branches:
@@ -17,6 +14,9 @@ defaults:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    env:
+      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
     steps:
       - uses: actions/checkout@v2

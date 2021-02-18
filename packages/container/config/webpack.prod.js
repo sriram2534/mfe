@@ -36,7 +36,7 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'container',
       remotes: {
-        marketing: `marketing@${domain}/marketing/remoteEntry.js`,
+        marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`,
       },
       shared: ['react', 'react-dom', 'react-router-dom', '@material-ui/core', '@material-ui/icons'],
     }),

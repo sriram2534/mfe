@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 
-import { mount } from 'marketing/MarketingApp'
+import { mount } from 'auth/AuthApp'
 
-const MarketingApp = () => {
+const AuthApp = () => {
   const ref = useRef(null)
   const history = useHistory()
 
@@ -15,10 +15,13 @@ const MarketingApp = () => {
     }
   }
 
+  const onSignIn = () => {}
+
   useEffect(() => {
     const { onParentNavigate } = mount(ref.current, {
       onNavigate,
       initialPath: history.location.pathname,
+      onSignIn,
     })
 
     history.listen(onParentNavigate)
@@ -26,7 +29,7 @@ const MarketingApp = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  return <div className={'marketing-app'} ref={ref}></div>
+  return <div className={'auth-app'} ref={ref}></div>
 }
 
-export default MarketingApp
+export default AuthApp

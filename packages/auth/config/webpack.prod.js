@@ -2,16 +2,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin')
 
 module.exports = {
+  mode: 'production',
   output: {
-    publicPath: 'http://localhost:5000/',
+    filename: '[name][contenthash].js',
+    publicPath: '/auth/latest/',
   },
-  mode: 'development',
   devServer: {
-    port: 5000,
+    port: 5002,
     open: true,
-    hot: true,
     historyApiFallback: {
-      index: '/index.html',
+      index: 'index.html',
     },
   },
   module: {
@@ -31,10 +31,10 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'container',
-      remotes: {
-        marketing: 'marketing@http://localhost:5001/remoteEntry.js',
-        auth: 'auth@http://localhost:5002/remoteEntry.js',
+      name: 'auth',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './AuthApp': './src/bootstrap.js',
       },
       shared: ['react', 'react-dom', 'react-router-dom', '@material-ui/core', '@material-ui/icons'],
     }),

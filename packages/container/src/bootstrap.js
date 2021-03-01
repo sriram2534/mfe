@@ -1,17 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import MarketingApp from './components/MarketingApp'
-
-const App = () => {
-  return (
-    <div>
-      <h1>This is Container App Test 3</h1>
-      <div>
-        <MarketingApp />
-      </div>
-    </div>
-  )
-}
+import App from './App'
 
 ReactDOM.render(<App />, document.getElementById('container-root'))

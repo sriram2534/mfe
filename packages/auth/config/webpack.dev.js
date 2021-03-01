@@ -4,15 +4,15 @@ const { merge } = require('webpack-merge')
 
 const devConfig = {
   output: {
-    publicPath: 'http://localhost:5001/',
+    publicPath: 'http://localhost:5002/',
   },
   mode: 'development',
   plugins: [
     new ModuleFederationPlugin({
-      name: 'marketing',
+      name: 'auth',
       filename: 'remoteEntry.js',
       exposes: {
-        './MarketingApp': './src/bootstrap.js',
+        './AuthApp': './src/bootstrap.js',
       },
       shared: ['react', 'react-dom', 'react-router-dom', '@material-ui/core', '@material-ui/icons'],
     }),
